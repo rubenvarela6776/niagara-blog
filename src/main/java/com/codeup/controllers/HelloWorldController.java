@@ -1,7 +1,10 @@
 package com.codeup.controllers;
+import org.codehaus.groovy.transform.GroovyASTTransformation;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by rubenvarela on 2/7/17.
  */
@@ -9,7 +12,14 @@ import org.springframework.web.bind.annotation.*;
 public class HelloWorldController {
 
     @GetMapping("/home")
-    public String homePage() {
+    public String homePage(Model model) {
+        model.addAttribute("date", "Feb 7th");
+        List<String> names = new ArrayList<>();
+        names.add("Ruben");
+        names.add("Yassine");
+        names.add("Abdou");
+        names.add("Fred");
+        model.addAttribute("names", names);
         return "home";  //home.html
     }
 

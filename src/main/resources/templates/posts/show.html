@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Specific Post</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+</head>
+<body>
+<nav th:include="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <h1 th:text="${post.title}"></h1>
+    <p th:text="${post.body}"></p>
+    <h2 class="lead">
+        Posted by:
+        <a th:href="${'/users/' + post.user.id}" th:text="${post.user.username}"></a>
+        <br>
+        Contact:
+        <a th:href="${'mailto:' + post.user.email}" th:text="${post.user.email}"></a>
+    </h2>
+    <a class="btn btn-danger" th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit Post</a>
+    <form th:method="POST" th:action="@{/posts/delete}">
+        <input type="hidden" name="id" th:value="${post.id}"/>
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+</div>
+</body>
+</html>
