@@ -7,16 +7,24 @@
 </head>
 <body>
 <nav th:include="fragments/navbar :: navbar"></nav>
-<div class="container">
-    <h1 style="padding-bottom: 20px">ALL POSTS</h1>
-    <div th:each="post : ${posts}" class="col-md-6">
-        <h2 class="lead">Posted by:
-            <!--<a th:href="${'/users/' + post.user.id}" th:text="${post.user.username}"></a>-->
-        </h2>
-        <h2 th:text = "${post.title}"></h2>
-        <p th:text = "${post.body}"></p>
-        <a class="btn btn-danger" th:href="@{'/posts/' + ${post.id}}">View Post</a>
-    </div>
+<!--<div class="container">-->
+    <!--<h1 style="padding-bottom: 20px">ALL POSTS</h1>-->
+    <!--<div th:each="post : ${posts}" class="col-md-6">-->
+        <!--<h2 class="lead">Posted by:-->
+            <!--&lt;!&ndash;<a th:href="${'/users/' + post.user.id}" th:text="${post.user.username}"></a>&ndash;&gt;-->
+        <!--</h2>-->
+        <!--<h2 th:text = "${post.title}"></h2>-->
+        <!--<p th:text = "${post.body}"></p>-->
+        <!--<a class="btn btn-danger" th:href="@{'/posts/' + ${post.id}}">View Post</a>-->
+    <!--</div>-->
+    <!--<div id="load-posts"></div>-->
+    <!--<span th:replace="fragments :: scripts"></span>-->
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    ></script>
+    <script src="/scripts/posts-list.js"></script>
 </div>
 </body>
 </html>
